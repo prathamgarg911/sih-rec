@@ -17,8 +17,8 @@ def similarity():
     else:
         return jsonify({'error': 'Missing user_info in request'})
 
-    cv = joblib.load('/home/prathamgarg/SIH23/flask-api/vect.pkl')
-    df = pd.read_csv("/home/prathamgarg/SIH23/flask-api/test-jobs.csv")
+    cv = joblib.load('vect.pkl')
+    df = pd.read_csv("test-jobs.csv")
     df['Combined'] = df.apply(lambda row: ' '.join([str(row['educational_qualification']), str(row['experience']),
     str(row['industry[0]']), str(row['industry[1]']),
     str(row['industry[2]']), str(row['industry[3]']),
