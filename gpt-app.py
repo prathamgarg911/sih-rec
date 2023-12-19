@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
 import joblib 
+import os 
 
 from flask import Flask, jsonify, request 
 
@@ -45,4 +46,5 @@ def similarity():
     return jsonify(output_data)
 
 if __name__ == '__main__':
-    app.run(host = "0.0.0.0" ,debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
